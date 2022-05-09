@@ -19,8 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'authenticate.lms@gmail.com'
-EMAIL_HOST_PASSWORD = 'Admin.LMS123'
+EMAIL_HOST_USER = 'lms.sudo@gmail.com'
+EMAIL_HOST_PASSWORD = 'LMS.Admin123'
 EMAIL_PORT = 587
 
 # Quick-start development settings - unsuitable for production
