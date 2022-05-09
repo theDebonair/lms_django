@@ -1,7 +1,7 @@
 # Library Management System [ L.M.S ]
 ###### This L.M.S is developed by using Django framework.
 
-##Features:
+## Features:
 - ###### Separate Student & Admin accounts,
 - ###### Account authentication via E-Mail,
 - ###### Book issue functionality,
