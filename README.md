@@ -11,7 +11,7 @@
 
 ## Requirements:
 ```
-pip install -r requiremetns.txt
+pip install -r requirements.txt
 ```
 
 ## Things to know:
