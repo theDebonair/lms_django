@@ -9,6 +9,11 @@
 - ###### Functionality for Admin to delete users,
 - ###### Book management for Admin.
 
+## Requirements:
+```
+pip install -r requirements.txt
+```
+
 ## Things to know:
 - ###### Django,
 - ###### Python,
