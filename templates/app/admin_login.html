@@ -1,40 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-{% load static %}
-{% block title %} Library Management System {% endblock %}
-{% block css %}
-{% endblock %}
-{% block body %}
-<div class="container">
-<br>
-<h1 class="text-center"><u>Admin Login</u></h1><br>
-<p><b>Note:</b> Only the admin can login from here. No student will be allowed to login.</p>
-    <form method="POST"> {% csrf_token %}
+    <link rel="icon" href="static/lms.ico" type="x-icon">
+    {% load static %}
+    {% block title %} Library Management System {% endblock %}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Username</label>
-            <input type="text" class="form-control mt-2" name="username" placeholder="Enter Username" required>
-        </div>
-    </div>
+        body {
+            background-color: black;
+            font-family: "Arial", sans-serif;
+            padding: 50px;
+        }
 
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Password</label>
-            <input type="password" class="form-control mt-2" name="password" placeholder="Enter Password" required>
-        </div>
+        .container {
+            margin: 20px auto;
+            padding: 10px;
+            width: 400px;
+            height: 300px auto;
+            background-color: silver;
+            border-radius: 5px;
+        }
+
+        h1 {
+            width: 70%;
+            color: black;
+            font-size: 32px;
+            margin: 28px auto;
+            margin-bottom: 20px;
+            text-align: center;
+            /*padding-top: 40px;*/
+        }
+
+        form {
+            /*padding: 15px;*/
+            text-align: center;
+        }
+
+        input {
+            padding: 12px 0;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 2px solid transparent;
+            text-align: center;
+            width: 90%;
+            font-size: 16px;
+            transition: border .2s, background-color .2s;
+        }
+
+        form .field {
+            background-color: white;
+        }
+
+        form .field:focus {
+            border: 2px solid #3498DB;
+        }
+
+        form .btn {
+            background-color: #3498DB;
+            color: #fff;
+            line-height: 25px;
+            cursor: pointer;
+        }
+
+        form .btn:hover,
+        form .btn:active {
+            background-color: #1F78B4;
+            border: 2px solid #1F78B4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ADMIN</h1>
+        <form method="POST">{% csrf_token %}
+            <input type="text" name="username" placeholder="username" class="field">
+            <input type="password" name="password" placeholder="password" class="field">
+            <input type="submit" value="login" class="btn">
+        </form>
     </div>
-    <button type="submit" class="btn btn-outline-primary mt-4">Login</button>
-</div>
-{% endblock %}
+    </form>
+</body>
 {% block js %}
 <script>
-    {% if alert %}
+    {%if alert %}
     alert("Invalid Username or Password.")
-    document.location = "/admin_login"
+    document.location = "/admin_login" 
     {% endif %}
 </script>
 {% endblock %}
-</head>
+
 </html>

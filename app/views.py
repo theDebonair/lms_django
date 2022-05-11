@@ -17,6 +17,7 @@ from . forms import *
 def index(request):
     return render(request, 'app/index.html')
 
+@login_required(login_url='/signin')
 def profile(request):
     return render(request, 'app/profile.html')
 
@@ -131,3 +132,96 @@ def logoutUser(request):
 
 def forgetpass(request):
     return render(request, 'app/forgetpass.html')
+
+@login_required(login_url='/admin_login')
+def addbook(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        author = request.POST['author']
+        isbn = request.POST['isbn']
+        category = request.POST['category']
+        profile_pic = request.FILES['profile_pic']
+
+        books = Book.objects.create(name=name, author=author, isbn=isbn, category=category, profile_pic=profile_pic)
+        books.save()
+        alert = True
+        return render(request, "app/addbook.html", {'alert': alert})
+    return render(request, "app/addbook.html")
+
+
+@login_required(login_url='/signin')
+def viewbook(request):
+    search_query = ''
+
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+
+    books = Book.objects.filter(Q(name__icontains=search_query) | Q(author__icontains=search_query) | Q(category__icontains=search_query))
+
+    return render(request, "app/viewbook.html", {'books': books})
+
+
+def delete_book(request, myid):
+    books = Book.objects.filter(id=myid)
+    books.delete()
+    return redirect("viewbook")
+
+
+@login_required(login_url="/admin_login")
+def view_student(request):
+    search_student = ''
+
+    if request.GET.get('search_student'):
+        search_student = request.GET.get('search_student')
+
+    students = Student.objects.filter(roll_no__icontains=search_student)
+
+    return render(request, "app/view_student.html", {'students': students})
+
+
+def delete_student(request, myid):
+    students = Student.objects.filter(id=myid)
+    students.delete()
+    return redirect("/view_student")
+
+
+def editprofile(request):
+    return render(request, 'app/editprofile.html')
+
+
+def issuebook_view(request):
+    form = IssuedBookForm()
+    if request.method == 'POST':
+        # now this form have data from html
+        form = IssuedBookForm(request.POST)
+        if form.is_valid():
+            obj = IssuedBook()
+            obj.roll_no = request.POST.get('roll_no2')
+            obj.isbn = request.POST.get('isbn2')
+            obj.save()
+            return render(request, 'app/profile.html')
+    return render(request, 'app/issuebook.html', {'form': form})
+
+def viewissuebook_view(request):
+    issuedbooks = IssuedBook.objects.all()
+    li=[]
+    for ib in issuedbooks:
+        issdate=str(ib.issuedate.day)+'-'+str(ib.issuedate.month)+'-'+str(ib.issuedate.year)
+        expdate=str(ib.expirydate.day)+'-'+str(ib.expirydate.month)+'-'+str(ib.expirydate.year)
+        #fine calculation
+        days=(date.today()-ib.issuedate)
+        print(date.today())
+        d=days.days
+        fine=0
+        if d>15:
+            day=d-15
+            fine=day*10
+        books=list(Book.objects.filter(isbn=ib.isbn))
+        students=list(Student.objects.filter(roll_no=ib.roll_no))
+        i=0
+        for l in books:
+            t=(students[i].user,students[i].roll_no,books[i].name,books[i].author,issdate,expdate,fine)
+            i=i+1
+            li.append(t)
+
+    return render(request,'app/viewissuebook.html',{'li':li})
