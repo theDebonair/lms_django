@@ -20,9 +20,9 @@ class Book(models.Model):
     def __str__(self):
         return str(self.name) + " ["+str(self.isbn)+']'
 
-
 def get_expiry():
     return datetime.today() + timedelta(days=15)
+
 class IssuedBook(models.Model):
     roll_no=models.CharField(max_length=30, blank=True)
     isbn=models.CharField(max_length=30)

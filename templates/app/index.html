@@ -3,16 +3,17 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
+    {% load static %}
+    <link rel="icon" href="{% static 'lms.png' %}" />
     <title>LMS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="static/lms.ico" type="x-icon">
     <style>
         body {
-            font-family: "Lato", sans-serif
+            font-family: "Lato", "sans-serif"
         }
 
         .mySlides {
@@ -38,8 +39,8 @@
             <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button">courses</a>
-                    <a href="#" class="w3-bar-item w3-button">HNB</a>
+                    <a href="https://online.hnbgu.ac.in" class="w3-bar-item w3-button">COURSES</a>
+                    <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button">HNBGU</a>
 
                 </div>
             </div>
@@ -85,44 +86,38 @@
 
         <!-- The top Section -->
         <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="home">
-            <h2 class="w3-wide">The Library</h2>
-            <p class="w3-opacity">Welcome to Library Management System</p>
-            <p class="w3-justify">“The richest person in the world – in fact all the riches in the world – couldn’t provide you with anything like the endless, incredible loot available at your local library.” – Malcolm Forbes
+            <h2 class="w3-wide"><b>LMS</b></h2>
+            <p class="w3-opacity"><b>L</b>ibrary <b>M</b>anagement <b>S</b>ystem</p>
+            <p class="w3-justify">“The richest person in the world in fact all the riches in the world couldn’t provide you with anything like the endless, incredible loot available at your local library.” – <b>Malcolm Forbes</b>
             </p>
         </div>
 
         <!-- The book Section -->
         <div class="w3-black" id="book">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-                <h2 class="w3-wide w3-center">Books</h2>
-                <p class="w3-opacity w3-center">Remember to return books in 7 Days</p><br>
+                <h2 class="w3-wide w3-center">BOOKS</h2>
+                <p class="w3-opacity w3-center">Remember to return books within 7 days.</p><br>
 
 
                 <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
                     <div class="w3-third w3-margin-bottom">
-                        <img src="/static/py.jpg" alt="" style="width:100%" class="w3-hover-opacity">
+                        <img src="/static/py.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p><b>Python</b></p>
-                            <p class="w3-opacity">Fri 27 Nov 2016</p>
-                            <p>book 1</p>
 
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
-                        <img src="/static/dj.jpg" alt="" style="width:100%" class="w3-hover-opacity">
+                        <img src="/static/dj.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p><b>Django</b></p>
-                            <p class="w3-opacity">Sat 28 Nov 2016</p>
-                            <p>book number 2.</p>
 
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
-                        <img src="" alt="" style="..." class="w3-hover-opacity">
+                        <img src="/static/cpp.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
-                            <p><b>c++</b></p>
-                            <p class="w3-opacity">Sun 29 Nov 2016</p>
-                            <p>Book num 3</p>
+                            <p><b>C++</b></p>
                         </div>
                     </div>
                 </div>
@@ -135,9 +130,8 @@
 
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <i class="fa fa-map-marker" style="width:30px"></i> Srinagar<br>
-                    <i class="fa fa-phone" style="width:30px"></i> Phone: xxxxxxxxxx<br>
-                    <i class="fa fa-envelope" style="width:30px"> </i> Email: xxx@mail.com<br>
+                    <i class="fa fa-map-marker" style="width:30px"></i> HNBGU, Srinagar, U.K<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> E-Mail: lms.sudo@gmail.com<br>
                 </div>
                 <div class="w3-col m6">
                     <form action="/action_page.php" target="_blank">
@@ -160,16 +154,12 @@
         <!-- About Us -->
         <div class="w3-black" id="aboutus">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-                <h2 class="w3-wide w3-center">Our Aim</h2>
+                <h2 class="w3-wide w3-center">OUR AIM</h2>
                 <p class="w3-opacity w3-center">The main objective of this project is to manage the details of the
-                    students,
-                    books and the issued books efficiently. This project helps to keep all the records of the library.
+                    students, books and the issued books efficiently. This project helps to keep all the records of the library.
                     Students can register themselves to this system. The admin can then issue them with any book they
-                    want
-                    to read for a period of 14 days. The students are requested to return it within 14 days (2 weeks) of
-                    time or else there is a Rs 5 fine each day till the book is being returned. After returning they
-                    again
-                    issue a new book if the student wants.</p><br>
+                    want to read for a period of 7 days. The students are requested to return it within 7 days of
+                    time or else there is a ₹5 fine/day till the book is being returned. After returning, they can re-issue a new book if the student wants. <br/>- <b>Team LMS</b></p><br>
             </div>
 
 </body>

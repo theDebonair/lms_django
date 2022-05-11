@@ -1,11 +1,9 @@
+{% load static %}
+<link rel="icon" href="{% static 'lms.png' %}" />
 {% autoescape off %}
-
- Hello {{ username }}!
- Please confirm your email by clicking on the following link.
-
- Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %} 
-
- Regards,
- Team LMS
-
- {% endautoescape %}
+Hello {{ username }}!
+Please confirm your email by clicking on the following link.
+Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %} 
+Regards,
+Team LMS
+{% endautoescape %}

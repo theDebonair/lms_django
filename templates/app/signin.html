@@ -4,7 +4,8 @@
 <head>
 
   <title>Login</title>
-  <link rel="icon" href="static/lms.ico" type="x-icon">
+  {% load static %}
+  <link rel="icon" href="{% static 'lms.png' %}" />
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,49 +16,49 @@
     /* Remove the navbar default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
+      height: 50px;
       border-radius: 0;
     }
 
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
-      padding: 25px;
+      background-color: #000000;
+      padding: 0;
     }
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+  
+      main {
+        flex: 1 0 auto;
+      }
+  
+      body {
+        background: #000000;
+      }
+  
+      .input-field input[type=date]:focus+label,
+      .input-field input[type=text]:focus+label,
+      .input-field input[type=email]:focus+label,
+      .input-field input[type=password]:focus+label {
+        color: #000000;
+      }
+  
+      .input-field input[type=date]:focus,
+      .input-field input[type=text]:focus,
+      .input-field input[type=email]:focus,
+      .input-field input[type=password]:focus {
+        border-bottom: 2px solid #000000;
+        box-shadow: none;
+      }
   </style>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1 0 auto;
-    }
-
-    body {
-      background: #fff;
-    }
-
-    .input-field input[type=date]:focus+label,
-    .input-field input[type=text]:focus+label,
-    .input-field input[type=email]:focus+label,
-    .input-field input[type=password]:focus+label {
-      color: #e91e63;
-    }
-
-    .input-field input[type=date]:focus,
-    .input-field input[type=text]:focus,
-    .input-field input[type=email]:focus,
-    .input-field input[type=password]:focus {
-      border-bottom: 2px solid #e91e63;
-      box-shadow: none;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -73,13 +74,9 @@
 
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="navbar-header">
-
-      </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/index">Home</a></li>
-
+          <li class="active"><a href="/index" style="height: 44px; margin-top: 2px;">HOME</a></li>
         </ul>
       </div>
     </div>
@@ -89,9 +86,7 @@
   <main>
     <center>
       <div class="section"></div>
-
-      <h5 class="indigo-text">
-        Please, login into your account!</h5>
+      <h5 style="color: white;">LOGIN</h5>
       <div class="section"></div>
 
       <div class="container">
@@ -107,17 +102,17 @@
             <div class='row'>
               <div class='input-field col s12'>
                 <input class='validate' type='text' name='username' id='username' />
-                <label for='username'>username</label>
+                <label for='username'>USERNAME</label>
               </div>
             </div>
 
             <div class='row'>
               <div class='input-field col s12'>
                 <input class='validate' type='password' name='password' id='password' />
-                <label for='password'>Enter your password</label>
+                <label for='password'>PASSWORD</label>
               </div>
               <label style='float: right;'>
-                <a class='pink-text' href='/forgetpass'><b>Forgot Password?</b></a>
+                <a style="color: red;" href='/forgetpass'><b>FORGOT PASSWORD?</b></a>
               </label>
             </div>
 
@@ -125,14 +120,14 @@
             <center>
               <div class='row'>
                 <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>
-                  Login
+                  LOGIN
                 </button>
               </div>
             </center>
           </form>
         </div>
       </div>
-      <a href="/signup">Create account</a>
+      <a href="/signup" style="color: white;">CREATE ACCOUNT</a>
     </center>
 
     <div class="section"></div>
