@@ -1,4 +1,4 @@
-# Library Management System [ L.M.S ]
+# [Library Management System](https://lmsapp.pythonanywhere.com) [ L.M.S ]
 ###### This L.M.S is developed by using Django framework.
 
 ## Features:
@@ -12,6 +12,11 @@
 ## Requirements:
 ```
 pip install -r requirements.txt
+```
+
+## Create Superuser:
+```
+py ./manage.py createsuperuser
 ```
 
 ## Things to know:
