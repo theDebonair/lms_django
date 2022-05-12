@@ -9,7 +9,7 @@
   <title>Books</title>
 </head>
 
-
+<body style="background: black;">
 <div class="p-3 mb-2 bg-info text-white">
   <a href="/index" button type="button" class="btn btn-dark">HOME</a></button>
   <div style="text-align: center;">
@@ -24,15 +24,13 @@
   </div>
   </form>
 </div>
-<body>
 
-  <h1>BOOK LIST</h1>
+  <h1 style="color: white;">BOOK LIST</h1>
 
   {% if books %}
 
   <div class="row mx-auto">
     {% for book in books %}
-
     <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
       <div class="card mx-auto text-center">
         <img class="card-img-top" src="{{ book.profile_pic.url }}" alt="Sample Title">
@@ -50,7 +48,7 @@
     {% endfor %}
   </div>
   {% else %}
-  <p class=" bg bg-black">THERE ARE NO BOOKS.</p>
+  <p class=" bg bg-black" style="color: white;">THERE ARE NO BOOKS.</p>
   {% endif %}
 </body>
 
