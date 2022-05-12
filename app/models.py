@@ -16,7 +16,6 @@ class Book(models.Model):
     isbn = models.PositiveIntegerField()
     category = models.CharField(max_length=50)
     profile_pic = models.ImageField(null=True, blank=True)
-
     def __str__(self):
         return str(self.name) + " ["+str(self.isbn)+']'
 
