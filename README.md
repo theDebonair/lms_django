@@ -14,6 +14,11 @@
 pip install -r requirements.txt
 ```
 
+## Create Superuser:
+```
+py ./manage.py createsuperuser
+```
+
 ## Things to know:
 - ###### Django,
 - ###### Python,
