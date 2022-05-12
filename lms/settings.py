@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-6f%84p1^+bvzcos5=*su44t*+fir7ouy7fm&87_#g3yxuyhrnx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['lmsapp.pythonanywhere.com']
 
 
 # Application definition
