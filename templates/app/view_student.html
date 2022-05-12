@@ -12,6 +12,7 @@
 <div class="p-3 mb-2 bg-info text-white">
     <div style="text-align: center;">
         <form class="form" id="searchform" action="" method="get">
+        {% csrf_token %}
             <div class="form-field">
                 <input type="text" class="col-5  form-control-lg" placeholder="Enter Roll No " name="search_student"
                     type="text" />

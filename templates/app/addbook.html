@@ -11,7 +11,8 @@
 <div class="p-3 mb-2 bg-dark text-white">
     <a href="/index"button type="button" class="btn btn-danger">Home</a></button>
     <div class="container">
-    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
     <div class="row mt-4">
         <div class="form-group col-md-12">
             <label>Book Name</label>

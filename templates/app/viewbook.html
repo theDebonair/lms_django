@@ -13,6 +13,7 @@
   <a href="/index" button type="button" class="btn btn-dark">Home</a></button>
   <div style="text-align: center;">
     <form class="form" id="searchform" action="" method="get">
+    {% csrf_token %}
       <div class="form-field">
         <input type="text" class="col-5  form-control-lg" placeholder="enter book name, Author or Category "
           name="search_query" type="text" />
@@ -32,7 +33,6 @@
   <div class="row mx-auto">
     {% for book in books %}
 
-
     <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
       <div class="card mx-auto text-center ">
         <img class="card-img-top" src="{{ book.profile_pic.url }}" alt="Sample Title">
@@ -41,8 +41,9 @@
           <h5>Author: {{book.author}}</h5>
           <h6> Category: {{book.category}}</h6>
           <h6>(ISBN: {{book.isbn}})</h6>
-          <br><a href="/delete_book/{{book.id}}/" class="btn btn-danger"
-            onclick="return confirm('Are you sure you want to delete this book?')">Delete</a>
+          {% if request.user.is_superuser %}
+          <br /><a href="/delete_book/{{book.id}}/" class="btn btn-danger"onclick="return confirm('Are you sure you want to delete this book?')">Delete</a>
+          {% endif %}
         </div>
       </div>
     </div>

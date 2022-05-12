@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Login</title>
+  <title>Student Login</title>
   {% load static %}
   <link rel="icon" href="{% static 'lms.png' %}" />
 
@@ -29,16 +29,13 @@
         display: flex;
         min-height: 100vh;
         flex-direction: column;
+        background: #000000;
       }
   
       main {
         flex: 1 0 auto;
       }
-  
-      body {
-        background: #000000;
-      }
-  
+
       .input-field input[type=date]:focus+label,
       .input-field input[type=text]:focus+label,
       .input-field input[type=email]:focus+label,
@@ -53,11 +50,19 @@
         border-bottom: 2px solid #000000;
         box-shadow: none;
       }
+
+      .close {
+        background-color: #FFFFFF;
+        border: 1px solid #FFFFFF;
+      }
+
+      .alert alert-{{ message.tags }} alert-dismissible {
+        color: white;
+      }
   </style>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   
 </head>
 
@@ -72,33 +77,23 @@
   </div>
   {% endfor %}
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/index" style="height: 44px; margin-top: 2px;">HOME</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <div class="section"></div>
   <main>
     <center>
       <div class="section"></div>
-      <h5 style="color: white;">LOGIN</h5>
+      <h5 style="color: white;">STUDENT</h5>
       <div class="section"></div>
 
       <div class="container">
         <div class="z-depth-1 grey lighten-4 row"
-          style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+          style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; border-radius: 12px;">
 
           <form class="col s12" method="post">
+          {% csrf_token %}
             <div class='row'>
               <div class='col s12'>
               </div>
             </div>
-            {% csrf_token %}
             <div class='row'>
               <div class='input-field col s12'>
                 <input class='validate' type='text' name='username' id='username' />

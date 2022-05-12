@@ -94,10 +94,8 @@
     <br>
     <div class="signup-form">
         <form  method="post" class="form-horizontal">
-
-    			<center><h2>ISSUE BOOK TO STUDENT</h2></center>
-
-{% csrf_token %}
+		{% csrf_token %}
+    		<center><h2>ISSUE BOOK TO STUDENT</h2></center>
 
             {% for field in form %}
             <div class="form-group">

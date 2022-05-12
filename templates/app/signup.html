@@ -15,68 +15,54 @@
     /* Remove the navbar default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
+      height: 50px;
       border-radius: 0;
     }
 
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
-      padding: 25px;
+      background-color: #000000;
+      padding: 0;
     }
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        background: #000000;
+      }
+  
+      main {
+        flex: 1 0 auto;
+      }
+
+      .input-field input[type=date]:focus+label,
+      .input-field input[type=text]:focus+label,
+      .input-field input[type=email]:focus+label,
+      .input-field input[type=password]:focus+label {
+        color: #000000;
+      }
+  
+      .input-field input[type=date]:focus,
+      .input-field input[type=text]:focus,
+      .input-field input[type=email]:focus,
+      .input-field input[type=password]:focus {
+        border-bottom: 2px solid #000000;
+        box-shadow: none;
+      }
+
+      .close {
+        background-color: #FFFFFF;
+        border: 1px solid #FFFFFF;
+      }
+
+      .alert alert-{{ message.tags }} alert-dismissible {
+        color: white;
+      }
   </style>
 
-<body>
-
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-
-
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/index">Home</a></li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-</body>
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-<style>
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  body {
-    background: #fff;
-  }
-
-  .input-field input[type=date]:focus+label,
-  .input-field input[type=text]:focus+label,
-  .input-field input[type=email]:focus+label,
-  .input-field input[type=password]:focus+label {
-    color: #e91e63;
-  }
-
-  .input-field input[type=date]:focus,
-  .input-field input[type=text]:focus,
-  .input-field input[type=email]:focus,
-  .input-field input[type=password]:focus {
-    border-bottom: 2px solid #e91e63;
-    box-shadow: none;
-  }
-</style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  
 </head>
 
 <body>
@@ -92,19 +78,20 @@
 
   <div class="container">
     <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
+    {% csrf_token %}
       <div class="section"></div>
       <main>
         <center>
 
           <div class="section"></div>
-          <h5 class="indigo-text">Enter your information</h5>
+          <h5 style="color: white;">SIGNUP</h5>
           <div class="section"></div>
 
           <div class="container">
             <div class="z-depth-1 grey lighten-4 row"
-              style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+              style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; border-radius: 12px;">
 
+              {% csrf_token %}
               <form class="col s12" method="post">
                 <div class='row'>
                   <div class='col s12'>
@@ -114,49 +101,47 @@
                 <div class='row'>
                   <div class='input-field col s12'>
                     <input class='validate' type='text' name='username' id='username' />
-                    <label for='username'>Username</label>
+                    <label for='username'>USERNAME</label>
                   </div>
                 </div>
 
                 <div class='row'>
                   <div class='input-field col s12'>
                     <input class='validate' type='email' name='email' id='email' />
-                    <label for='email'>E-Mail</label>
+                    <label for='email'>E-MAIL</label>
                   </div>
                 </div>
 
                 <div class='row'>
                   <div class='input-field col s12'>
                     <input class='validate' type='number' name='roll_no' id='roll_no' />
-                    <label for='roll_no'>Roll Number</label>
+                    <label for='roll_no'>ROLL NUMBER</label>
                   </div>
                 </div>
 
                 <div class='row'>
                   <div class='input-field col s12'>
                     <input class='validate' type='password' name='password' id='password' />
-                    <label for='password'>Password</label>
+                    <label for='password'>PASSWORD</label>
                   </div>
                   <div class='input-field col s12'>
                     <input class='validate' type='password' name='confirm_password' id='confirm_password' />
-                    <label for='confirm_password'>Confirm Password</label>
+                    <label for='confirm_password'>CONFIRM PASSWORD</label>
                   </div>
                   <label style='float: right;'>
-                    <a class='pink-text' href='/forgetpass'><b>Forget Password?</b></a>
+                    <a class='pink-text' href='/forgetpass'><b>FORGET PASSWORD?</b></a>
                   </label>
                 </div>
 
                 <br />
                 <center>
                   <div class='row'>
-                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Sign
-                      Up</button>
+                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>SIGN UP</button>
                   </div>
                 </center>
               </form>
             </div>
           </div>
-          <a href="/signup">Create Account</a>
         </center>
 
         <div class="section"></div>
@@ -164,8 +149,7 @@
       </main>
 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-      <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
       {% block js %}
       <script>
