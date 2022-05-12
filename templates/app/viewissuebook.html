@@ -58,23 +58,23 @@ border-radius: 5px;
 }
     </style>
   </head>
-  <body>
+  <body style="background: black; color: white; font-family: Arial;">
 
     <br>
     <br>
-    <h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;margin-bottom:0px;'>Issued books to Student !</h3>
+    <h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;margin-bottom:0px;'>ISSUED BOOKS</h3>
 
 {% if li %}
     <table class="redTable">
     <thead>
     <tr>
-    <th>Student Name</th>
-    <th>Student roll_no</th>
-    <th>Book Name</th>
-    <th>Book Author</th>
-    <th>Issue Date</th>
-    <th>Expiry Date</th>
-    <th>Fine</th>
+    <th>STUDENT NAME</th>
+    <th>STUDENT ROLL NUMBER</th>
+    <th>BOOK NAME</th>
+    <th>BOOK AUTHOR</th>
+    <th>ISSUE DATE</th>
+    <th>EXPIRY DATE</th>
+    <th>FINE</th>
     </tr>
     </thead>
     <tfoot>
@@ -87,7 +87,7 @@ border-radius: 5px;
     <tbody>
 
       {% for t in li %}
-        <tr>
+        <tr style="color: black;">
           <td>{{t.0}}</td>
           <td>{{t.1}}</td>
           <td>{{t.2}}</td>
@@ -101,9 +101,8 @@ border-radius: 5px;
     </tbody>
     </table>
     {%else%}
-    <h1> 0 book Issued</h1>
+    <h1> 0 BOOK ISSUED</h1>
     {%endif%}
-
 
   </body>
 </html>

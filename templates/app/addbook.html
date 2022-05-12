@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <link rel="icon" href="{% static 'lms.png' %}" />
     <title>Add Book</title>
     <!-- CSS only -->
+    <style>
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            background: white;
+            border-radius: 12px;
+        }
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
-<div class="p-3 mb-2 bg-dark text-white">
-    <a href="/index"button type="button" class="btn btn-danger">Home</a></button>
-    <div class="container">
-        <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Book Name</label>
-            <input type="text" class="form-control mt-1" name="name" placeholder="Enter name of the Book" required>
+<body style="background: black;">
+    <div class="p-3 mb-2 text-black">
+        <a href="/index" button type="button" class="btn btn-danger"
+            style="background-color: #5a6268; border: 1px #5a6268;">HOME</a></button>
+        <div class="container">
+            <div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row mt-4">
+                        <div class="form-group col-md-12">
+                            <label>BOOK NAME</label>
+                            <input type="text" class="form-control mt-1" name="name"
+                                placeholder="ENTER NAME OF THE BOOK" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="form-group col-md-12">
+                            <label>AUTHOR NAME</label>
+                            <input type="text" class="form-control mt-1" name="author"
+                                placeholder="ENTER NAME OF THE AUTHOR" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="form-group col-md-12">
+                            <label>ISBN NUMBER</label>
+                            <input type="number" class="form-control mt-1" name="isbn"
+                                placeholder="ENTER ISBN NUMBER OF THE BOOK" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="form-group col-md-12">
+                            <label>CATEGORY</label>
+                            <input type="text" class="form-control mt-1" name="category"
+                                placeholder="ENTER CATEGORY OF THE BOOK" required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="form-group col-md-12">
+                            <label>BOOK IMAGE</label><br />
+                            <input type="file" name="profile_pic" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info">ADD BOOK</button>
+            </div>
         </div>
-    </div>
+        </form>
 
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Author Name</label>
-            <input type="text" class="form-control mt-1" name="author" placeholder="Enter name of the Author" required>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>ISBN Number</label>
-            <input type="number" class="form-control mt-1" name="isbn" placeholder="Enter ISBN number of the book" required>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Category</label>
-            <input type="text" class="form-control mt-1" name="category" placeholder="Enter Category of the book" required>
-        </div>
-    </div>
-        <div class="row mt-4">
-        <div class="form-group col-md-12">
-            <label>Book Image</label>
-            <input type="file" class="form-control mt-1" name="profile_pic" required>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-info">Add Book</button>
-    </div>
-</div>
-</form>
-
-{% block js %}
-<script>
-    {% if alert %}
-    alert("Book is added successfully.")
-    document.location = "/index"
-    {% endif %}
-</script>
-{% endblock %}
-
-<body>
+        {% block js %}
+        <script>
+            {% if alert %}
+            alert("Book is added successfully.")
+            document.location = "/index" 
+            {% endif %}
+        </script>
+        {% endblock %}
 
 </body>
+
 </html>

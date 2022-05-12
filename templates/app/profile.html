@@ -13,9 +13,13 @@
         .profile {
             padding: 3%;
             margin-top: 10%;
-            margin-bottom: 50%;
+            margin-bottom: 10%;
             border-radius: 0.5rem;
-            background: lightblue;
+            background: white;
+        }
+
+        body {
+            background: black;
         }
 
         .profile-img {
@@ -26,13 +30,13 @@
 </head>
 
 {% block body %}
-<a href="/index" button type="button" class="btn btn-dark">Home</a></button>
+<a href="/index" button type="button" class="btn btn-dark">HOME</a></button>
 <div class="container profile">
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
                 {% if request.user.is_superuser %}
-                <img src="/static/admin.jpg" alt="" width="310px" height="270px">
+                <img src="/static/admin.png" alt="" width="310px" height="270px">
                 {% else %}
                 <img src="/static/student.png" alt="" width="310px" height="270px">
                 {% endif %}
@@ -43,39 +47,45 @@
                 <div class="tab-pane">
                     <div class="row">
                         <div class="col-md-6">
+                            {% if not request.user.is_superuser %}
                             <label>ID: {{user.id}}</label>
+                            {% endif %}
                         </div>
                         <p></p>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Username: {{user}}</label>
+                            {% if not request.user.is_superuser %}
+                            <label>USERNAME: {{user}}</label>
+                            {% else %}
+                            <label><b>ADMIN</b></label>
+                            {% endif %}
                         </div>
                         <p></p>
                     </div>
                     {% if not request.user.is_superuser %}
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Email: {{user.email}}</label>
+                            <label>EMAIL: {{user.email}}</label>
                         </div>
 
                         <p></p>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Roll Number: {{user.student.roll_no}}</label>
+                            <label>ROLL NUMBER: {{user.student.roll_no}}</label>
                         </div>
                         <p></p>
                     </div>
                     {% endif %}
                 </div>
                 {% if request.user.is_superuser %}
-                <a href='/addbook' style="width: 9rem;" class="btn btn-primary">addbook</a>
-                <a href='/issuebook' style="width: 9rem;" class="btn btn-secondary">issuebook</a>
-                <a href="/view_student" style="width: 9rem;" class="btn btn-info">view student</a>
-                <a href='/admin/app/issuedbook/' style="width: 9rem;" class="btn btn-success">viewissuebook</a>
+                <a href='/addbook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ADD BOOK</a>
+                <a href='/issuebook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ISSUE BOOKS</a><br />
+                <a href="/view_student" style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">VIEW STUDENTS</a>
+                <a href='/admin/app/issuedbook/' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">VIEW ISSUED BOOKS</a><br />
                 {% endif %}
-                <a href="/viewbook" style="width: 9rem;" class="btn btn-light">viewbook</a>
+                <a href="/viewbook" style="width: 30rem; margin-left: 2.5px; margin-bottom: 5px;" class="btn btn-secondary">VIEW BOOKS</a><br />
             </div>
         </div>
     </div>
