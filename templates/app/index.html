@@ -31,7 +31,11 @@
                 href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>{% if request.user.is_authenticated %}
             <button class="w3-bar-item w3-padding-large ">
-                Hello {{request.user}}
+                {% if request.user.is_superuser %}
+                HELLO ADMIN
+                {% else %}
+                HELLO {{request.user}}
+                {% endif %}
             </button>
             {% endif %}
             <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
@@ -60,8 +64,10 @@
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
         <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
-        <a href="https://online.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">COURSES</a>
-        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HNBGU</a>
+        <a href="https://online.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">COURSES</a>
+        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">HNBGU</a>
     </div>
 
     <!-- Page content -->
@@ -88,7 +94,9 @@
         <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="home">
             <h2 class="w3-wide"><b>LMS</b></h2>
             <p class="w3-opacity"><b>L</b>ibrary <b>M</b>anagement <b>S</b>ystem</p>
-            <p class="w3-justify">“The richest person in the world in fact all the riches in the world couldn’t provide you with anything like the endless, incredible loot available at your local library.” –<b>Malcolm Forbes</b>
+            <p class="w3-justify">“The richest person in the world in fact all the riches in the world couldn’t provide
+                you with anything like the endless, incredible loot available at your local library.” –<b>Malcolm
+                    Forbes</b>
             </p>
         </div>
 
@@ -103,21 +111,21 @@
                     <div class="w3-third w3-margin-bottom">
                         <img src="/static/py.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
-                            <p><b>Python</b></p>
+                            <p>PYTHON</p>
 
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
                         <img src="/static/dj.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
-                            <p><b>Django</b></p>
+                            <p>DJANGO</p>
 
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
                         <img src="/static/cpp.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
-                            <p><b>C++</b></p>
+                            <p>C++</p>
                         </div>
                     </div>
                 </div>
@@ -130,12 +138,12 @@
 
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <i class="fa fa-map-marker" style="width:30px"></i> HNBGU, Srinagar, U.K<br />
+                    <i class="fa fa-map-marker" style="width:30px"></i> HNBGU, SRINAGAR, U.K<br />
                     <i class="fa fa-envelope" style="width:30px"> </i> E-Mail: lmsproject016@gmail.com<br />
                 </div>
                 <div class="w3-col m6">
                     <form action="/action_page.php" target="_blank">
-                    {% csrf_token %}
+                        {% csrf_token %}
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
                                 <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
@@ -157,10 +165,12 @@
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
                 <h2 class="w3-wide w3-center">ABOUT US</h2>
                 <p class="w3-opacity w3-center">LMSis used is to manage the details of the
-                    students, books and the issued books efficiently. This project helps to keep all the records of the library.
+                    students, books and the issued books efficiently. This project helps to keep all the records of the
+                    library.
                     Students can register themselves to this system. The admin can then issue them with any book they
                     want to read for a period of 7 days. The students are requested to return it within 7 days of
-                    time or else there is a ₹5 fine/day till the book is being returned. After returning, they can re-issue a new book if the student wants. <br />-<b>Team LMS</b></p><br />
+                    time or else there is a ₹5 fine/day till the book is being returned. After returning, they can
+                    re-issue a new book if the student wants. <br />-<b>Team LMS</b></p><br />
             </div>
 
 </body>
