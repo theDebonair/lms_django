@@ -19,8 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'E-Mail here'
-EMAIL_HOST_PASSWORD = 'E-Mail password here'
+EMAIL_HOST_USER = 'lmsproject016@gmail.com'
+EMAIL_HOST_PASSWORD = 'teamlms@321'
 EMAIL_PORT = 587
 
 # Quick-start development settings - unsuitable for production
@@ -30,9 +30,9 @@ EMAIL_PORT = 587
 SECRET_KEY = 'django-insecure-6f%84p1^+bvzcos5=*su44t*+fir7ouy7fm&87_#g3yxuyhrnx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['lmsapp.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
