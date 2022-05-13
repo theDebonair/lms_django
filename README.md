@@ -25,3 +25,7 @@ py ./manage.py createsuperuser
 - ###### JS,
 - ###### CSS,
 - ###### HTML.
+
+## P.S:
+- ###### Change "Debug = True" in settings.py before running this porject locally for further development,
+- ###### Feel free to make suggestions, report bugs on this project's [discussions](https://github.com/theDebonair/lms_django/discussions) tab.
