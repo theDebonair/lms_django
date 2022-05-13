@@ -30,9 +30,9 @@ EMAIL_PORT = 587
 SECRET_KEY = 'secret key here'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['lmsapp.pythonanywhere.com',]
 
 
 # Application definition
