@@ -27,5 +27,5 @@ py ./manage.py createsuperuser
 - ###### HTML.
 
 ## P.S:
-- ###### Change "Debug = True", fill SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, change ALLOWED_HOSTS to '*' in settings.py before using this project,
+- ###### Change ["Debug = True"](https://github.com/theDebonair/lms_django/blob/master/lms/settings.py), fill [SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD](https://github.com/theDebonair/lms_django/blob/master/lms/settings.py), change [ALLOWED_HOSTS](https://github.com/theDebonair/lms_django/blob/master/lms/settings.py) to '*' in settings.py before using this project,
 - ###### Feel free to make suggestions, report bugs on this project's [discussions](https://github.com/theDebonair/lms_django/discussions) tab.
