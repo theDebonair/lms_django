@@ -27,9 +27,10 @@
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-black w3-card">
-            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
-                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
-                    class="fa fa-bars"></i></a>{% if request.user.is_authenticated %}
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            {% if request.user.is_authenticated %}
             <button class="w3-bar-item w3-padding-large ">
                 {% if request.user.is_superuser %}
                 HELLO ADMIN
@@ -39,35 +40,40 @@
             </button>
             {% endif %}
             <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-            <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-            <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+            <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button">HNBGU</a>
+            <a href="https://www.hnbgu.ac.in/courses-glance" class="w3-bar-item w3-button">COURSES</a>
             <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="https://online.hnbgu.ac.in" class="w3-bar-item w3-button">COURSES</a>
-                    <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button">HNBGU</a>
-
+                    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+                    <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
                 </div>
             </div>
             {% if not request.user.is_authenticated %}
-            <a href="/signin" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">STUDENT</a>
             <a href="/admin_login" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">ADMIN</a>
+            <a href="/signin" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">STUDENT</a>
             {% endif %}
             {% if request.user.is_authenticated %}
-            <a href="/logout" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">LOGOUT</a>
             <a href="/profile" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">PROFILE</a>
+            <a href="/logout" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">LOGOUT</a>
             {% endif %}
         </div>
     </div>
 
     <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        {% if not request.user.is_authenticated %}
+        <a href="/admin_login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ADMIN</a>
+        <a href="/signin" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">STUDENT</a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+        <a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGOUT</a>
+        {% endif %}
+        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HNBGU</a>
+        <a href="https://www.hnbgu.ac.in/courses-glance" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">COURSES</a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
         <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
-        <a href="https://online.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()">COURSES</a>
-        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
-            onclick="myFunction()">HNBGU</a>
     </div>
 
     <!-- Page content -->
@@ -94,9 +100,7 @@
         <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="home">
             <h2 class="w3-wide"><b>LMS</b></h2>
             <p class="w3-opacity"><b>L</b>ibrary <b>M</b>anagement <b>S</b>ystem</p>
-            <p class="w3-justify">“The richest person in the world in fact all the riches in the world couldn’t provide
-                you with anything like the endless, incredible loot available at your local library.” –<b>Malcolm
-                    Forbes</b>
+            <p class="w3-justify">“The richest person in the world in fact all the riches in the world couldn’t provide you with anything like the endless, incredible loot available at your local library.” –<b>Malcolm Forbes</b>
             </p>
         </div>
 
@@ -104,7 +108,7 @@
         <div class="w3-black" id="book">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
                 <h2 class="w3-wide w3-center">BOOKS</h2>
-                <p class="w3-opacity w3-center">Remember to return books within 7 days.</p><br />
+                <p class="w3-opacity w3-center">Remember to return books within 14 days.</p><br />
 
 
                 <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
@@ -126,6 +130,7 @@
                         <img src="/static/cpp.jpg" alt="" style="width: 100%; height: 400px;" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p>C++</p>
+
                         </div>
                     </div>
                 </div>
@@ -138,7 +143,7 @@
 
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <i class="fa fa-map-marker" style="width:30px"></i> HNBGU, SRINAGAR, U.K<br />
+                    <i class="fa fa-map-marker" style="width:30px"></i> HNBGU, SRINAGAR, U.K, INDIA<br />
                     <i class="fa fa-envelope" style="width:30px"> </i> E-Mail: lmsproject016@gmail.com<br />
                 </div>
                 <div class="w3-col m6">
@@ -164,19 +169,13 @@
         <div class="w3-black" id="aboutus">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
                 <h2 class="w3-wide w3-center">ABOUT US</h2>
-                <p class="w3-opacity w3-center">LMSis used is to manage the details of the
-                    students, books and the issued books efficiently. This project helps to keep all the records of the
-                    library.
-                    Students can register themselves to this system. The admin can then issue them with any book they
-                    want to read for a period of 7 days. The students are requested to return it within 7 days of
-                    time or else there is a ₹5 fine/day till the book is being returned. After returning, they can
-                    re-issue a new book if the student wants. <br />-<b>Team LMS</b></p><br />
+                <p class="w3-opacity w3-center">LMS is used to manage the details of the students, books and the issued books efficiently. This project helps to keep all the records of the library. Students can register themselves to this system. The admin can then issue them with any book they want to read for a period of 14 days. The students are requested to return it within 14 days of time or else there is a ₹5 fine/day till the book is being returned. After returning, they can re-issue a new book if the student wants. <br />-<b>Team LMS</b></p><br />
             </div>
 
 </body>
 
 <script>
-    // Automatic Slideshow - change images every 4 seconds
+    // Automatic Slideshow - change images every 2 seconds
     var myIndex = 0;
     carousel();
 
@@ -191,7 +190,7 @@
             myIndex = 1
         }
         x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000);
+        setTimeout(carousel, 2000);
     }
 
     // Used to toggle the menu on small screens when clicking on the menu button
