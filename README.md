@@ -27,5 +27,5 @@ py ./manage.py createsuperuser
 - ###### HTML.
 
 ## P.S:
-- ###### Change "Debug = True" in settings.py before running this porject locally for further development,
+- ###### Change "Debug = True", fill SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD in settings.py before using this project,
 - ###### Feel free to make suggestions, report bugs on this project's [discussions](https://github.com/theDebonair/lms_django/discussions) tab.
