@@ -1,5 +1,5 @@
-# [Library Management System](https://lmsapp.pythonanywhere.com) [ L.M.S ]
-###### This L.M.S is developed by using Django framework.
+# [Library Management System](https://lmsapp.pythonanywhere.com) [ LMS ]
+###### This LMS is developed by using Django framework.
 
 ## Features:
 - ###### Separate Student & Admin accounts,
@@ -27,5 +27,5 @@ py ./manage.py createsuperuser
 - ###### HTML.
 
 ## P.S:
-- ###### Change "Debug = True", fill SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD in settings.py before using this project,
+- ###### Change "Debug = True", fill SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, change ALLOWED_HOSTS to '*' in settings.py before using this project,
 - ###### Feel free to make suggestions, report bugs on this project's [discussions](https://github.com/theDebonair/lms_django/discussions) tab.
