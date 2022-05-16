@@ -6,9 +6,10 @@
     {% load static %}
     <link rel="icon" href="{% static 'lms.png' %}" />
     <!-- CSS only -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-    {% block css %}
     <style>
         .profile {
             padding: 3%;
@@ -26,70 +27,137 @@
             text-align: right;
         }
     </style>
-    {% endblock %}
 </head>
 
-{% block body %}
-<a href="/index" button type="button" class="btn btn-dark">HOME</a></button>
-<div class="container profile">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="profile-img">
-                {% if request.user.is_superuser %}
-                <img src="/static/admin.png" alt="" width="310px" height="270px">
-                {% else %}
-                <img src="/static/student.png" alt="" width="310px" height="270px">
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="profile-tab">
-                <div class="tab-pane">
-                    <div class="row">
-                        <div class="col-md-6">
-                            {% if not request.user.is_superuser %}
-                            <label>ID: {{user.id}}</label>
-                            {% endif %}
-                        </div>
-                        <p></p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            {% if not request.user.is_superuser %}
-                            <label>USERNAME: {{user}}</label>
-                            {% else %}
-                            <label><b>ADMIN</b></label>
-                            {% endif %}
-                        </div>
-                        <p></p>
-                    </div>
-                    {% if not request.user.is_superuser %}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>EMAIL: {{user.email}}</label>
-                        </div>
+<body>
 
-                        <p></p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>ROLL NUMBER: {{user.student.roll_no}}</label>
-                        </div>
-                        <p></p>
-                    </div>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            {% if request.user.is_authenticated %}
+            <button class="w3-bar-item w3-padding-large ">
+                {% if request.user.is_superuser %}
+                HELLO ADMIN
+                {% else %}
+                HELLO {{request.user}}
+                {% endif %}
+            </button>
+            {% endif %}
+            <a href="/#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HNBGU</a>
+            <a href="https://www.hnbgu.ac.in/courses-glance"
+                class="w3-bar-item w3-button w3-padding-large w3-hide-small">COURSES</a>
+            <div class="w3-dropdown-hover w3-hide-small">
+                <button class="w3-padding-large w3-button" title="More">MORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                        class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button">LMS FOR PC</a>
+                    <a href="https://github.com/theDebonair/lms_android/releases" class="w3-bar-item w3-button">LMS FOR
+                        ANDROID</a>
+                    <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+                    <a href="#aboutus" class="w3-bar-item w3-button">ABOUT US</a>
+                </div>
+            </div>
+            {% if not request.user.is_authenticated %}
+            <a href="/admin_login" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">ADMIN</a>
+            <a href="/signin" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">STUDENT</a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <a href="/profile" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">PROFILE</a>
+            <a href="/logout" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">LOGOUT</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        {% if not request.user.is_authenticated %}
+        <a href="/admin_login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ADMIN</a>
+        <a href="/signin" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">STUDENT</a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+        <a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGOUT</a>
+        {% endif %}
+        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">HNBGU</a>
+        <a href="https://www.hnbgu.ac.in/courses-glance" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">COURSES</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+        <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
+    </div>
+
+    <div class="container profile">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    {% if request.user.is_superuser %}
+                    <img src="/static/admin.png" alt="" width="310px" height="270px">
+                    {% else %}
+                    <img src="/static/student.png" alt="" width="310px" height="270px">
                     {% endif %}
                 </div>
-                {% if request.user.is_superuser %}
-                <a href='/addbook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ADD BOOK</a>
-                <a href='/issuebook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ISSUE BOOKS</a><br />
-                <a href="/view_student" style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">VIEW STUDENTS</a>
-                <a href='/admin/app/issuedbook/' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">VIEW ISSUED BOOKS</a><br />
-                {% endif %}
-                <a href="/viewbook" style="width: 30rem; margin-left: 2.5px; margin-bottom: 5px;" class="btn btn-secondary">VIEW BOOKS</a><br />
+            </div>
+            <div class="col-md-8">
+                <div class="profile-tab">
+                    <div class="tab-pane">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% if not request.user.is_superuser %}
+                                <label>ID: {{user.id}}</label>
+                                {% endif %}
+                            </div>
+                            <p></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% if not request.user.is_superuser %}
+                                <label>USERNAME: {{user}}</label>
+                                {% else %}
+                                <label><b>ADMIN</b></label>
+                                {% endif %}
+                            </div>
+                            <p></p>
+                        </div>
+                        {% if not request.user.is_superuser %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>EMAIL: {{user.email}}</label>
+                            </div>
+
+                            <p></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>ROLL NUMBER: {{user.student.roll_no}}</label>
+                            </div>
+                            <p></p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if request.user.is_superuser %}
+                    <a href='/addbook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ADD BOOK</a>
+                    <a href='/issuebook' style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">ISSUE
+                        BOOKS</a><br />
+                    <a href="/view_student" style="width: 15rem; margin-bottom:5px;" class="btn btn-secondary">VIEW
+                        STUDENTS</a>
+                    <a href='/admin/app/issuedbook/' style="width: 15rem; margin-bottom:5px;"
+                        class="btn btn-secondary">VIEW ISSUED BOOKS</a><br />
+                    {% endif %}
+                    <a href="/viewbook" style="width: 15rem; margin-bottom: 5px;" class="btn btn-secondary">VIEW
+                        BOOKS</a>
+                    {% if not request.user.is_superuser %}
+                    <a href="/editprofile" style="width: 15rem; margin-bottom: 5px;" class="btn btn-secondary">EDIT
+                        PROFILE</a><br />
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+</body>
 
 </html>
