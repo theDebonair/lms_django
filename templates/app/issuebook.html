@@ -1,119 +1,121 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	{% load static %}
-    <link rel="icon" href="{% static 'lms.png' %}" />
-    <title>Issue Book</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<link rel="icon" href="{% static 'lms.png' %}" />
+	<title>Issue Book</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-    <style type="text/css">
-    	body {
-    		color: #aa082e;
-    		background: #c5acb0;
-    		font-family: 'Roboto', sans-serif;
-    	}
-        .form-control {
-    		border-color: #eee;
-            min-height: 41px;
-    		box-shadow: none !important;
-    	}
-        .form-control:focus {
-    		border-color: #5cd3b4;
-    	}
-        .form-control, .btn {
-            border-radius: 3px;
-        }
-    	.signup-form {
-    		width: 500px;
-    		margin: 0 auto;
-    		padding: 30px 0;
-    	}
-        .signup-form h2 {
-    		color: #333;
-            margin: 0 0 30px 0;
-    		display: inline-block;
-    		padding: 0 30px 10px 0;
-    	    border-bottom: 3px solid #ffffff;
-        }
-        .signup-form form {
-    		color: #999;
-    		border-radius: 3px;
-        	margin-bottom: 15px;
-            background: #fff;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-        }
-    	.signup-form .form-group {
-    		margin-bottom: 20px;
-    	}
-    	.signup-form label {
-    		font-weight: normal;
-    		font-size: 13px;
-    	}
-        .signup-form input[type="checkbox"] {
-    		margin-top: 2px;
-    	}
-        .signup-form .btn {
-            font-size: 16px;
-            font-weight: bold;
-    	background: #161df0;
-    		border: none;
-    		margin-top: 20px;
-    		min-width: 140px;
-        }
-    	.signup-form .btn:hover, .signup-form .btn:focus {
-    		background: #41cba9;
-            outline: none !important;
-    	}
-        .signup-form a {
-    		color: #2b04ff;
+	<style>
+		.container {
+			margin: auto;
+			width: 50%;
+			padding: 10px;
+			background: white;
+			border-radius: 12px;
+		}
+	</style>
 
-    		text-decoration: underline;
-    	}
-    	.signup-form a:hover {
-    		text-decoration: none;
-    	}
-        .signup-form form a {
-    		color: #5cd3b4;
-    		text-decoration: none;
-    	}
-    	.signup-form form a:hover {
-    		text-decoration: underline;
-    	}
-    </style>
+</head>
 
-  </head>
-  <body style="background-color:#000000;">
+<body style="background-color:#000000;">
 
-    <br>
-    <br>
-    <div class="signup-form">
-        <form  method="post" class="form-horizontal">
-		{% csrf_token %}
-    		<center><h2>ISSUE BOOK TO STUDENT</h2></center>
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-black w3-card">
+			<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+				href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+				<i class="fa fa-bars"></i>
+			</a>
+			{% if request.user.is_authenticated %}
+			<button class="w3-bar-item w3-padding-large ">
+				{% if request.user.is_superuser %}
+				HELLO ADMIN
+				{% else %}
+				HELLO {{request.user}}
+				{% endif %}
+			</button>
+			{% endif %}
+			<a href="/#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+			<a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HNBGU</a>
+			<a href="https://www.hnbgu.ac.in/courses-glance"
+				class="w3-bar-item w3-button w3-padding-large w3-hide-small">COURSES</a>
+			<div class="w3-dropdown-hover w3-hide-small">
+				<button class="w3-padding-large w3-button" title="More">MORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+						class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a href="#" class="w3-bar-item w3-button">LMS FOR PC</a>
+					<a href="https://github.com/theDebonair/lms_android/releases" class="w3-bar-item w3-button">LMS FOR
+						ANDROID</a>
+					<a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+					<a href="#aboutus" class="w3-bar-item w3-button">ABOUT US</a>
+				</div>
+			</div>
+			{% if not request.user.is_authenticated %}
+			<a href="/admin_login" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">ADMIN</a>
+			<a href="/signin" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">STUDENT</a>
+			{% endif %}
+			{% if request.user.is_authenticated %}
+			<a href="/profile" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">PROFILE</a>
+			<a href="/logout" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">LOGOUT</a>
+			{% endif %}
+		</div>
+	</div>
 
-            {% for field in form %}
-            <div class="form-group">
-              <label class="control-label col-xs-4">{{ field.label_tag }}</label>
-              <div class="col-xs-8">
-              {{ field }}
-               </div>
-            </div>
-            {% endfor %}
+	<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+	<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+		{% if not request.user.is_authenticated %}
+		<a href="/admin_login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ADMIN</a>
+		<a href="/signin" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">STUDENT</a>
+		{% endif %}
+		{% if request.user.is_authenticated %}
+		<a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+		<a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGOUT</a>
+		{% endif %}
+		<a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
+			onclick="myFunction()">HNBGU</a>
+		<a href="https://www.hnbgu.ac.in/courses-glance" class="w3-bar-item w3-button w3-padding-large"
+			onclick="myFunction()">COURSES</a>
+		<a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+		<a href="#aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
+	</div>
+	<div class="container" style="margin-top: 80px;">
+		<form method="post" class="form-horizontal">
+			{% csrf_token %}
+			<center>
+				<h2>ISSUE BOOK TO STUDENT</h2>
+			</center>
 
-    		<div class="form-group">
-    			<div class="col-xs-8 col-xs-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg">ISSUE</button>
-    			</div>
-    		</div>
-        </form>
-    	<div class="text-center"><a href="/viewissuebook">QUICK VIEW ISSUED BOOK TO STUDENT</a></div>
-    </div>
+			{% for field in form %}
+			<div class="form-group" style="padding-top: 10px;">
+				<label class="control-label col-xs-4">{{ field.label_tag }}</label>
+				<div class="col-xs-8">
+					{{ field }}
+				</div>
+			</div>
+			{% endfor %}
 
-  </body>
+			<div class="form-group">
+				<center>
+					<div class="col-xs-8 col-xs-offset-4">
+						<button type="submit" class="btn btn-primary btn-lg" style="width: 15rem;">ISSUE</button>
+					</div>
+				</center>
+			</div>
+		</form>
+		<div>
+			<center>
+				<a href="/viewissuebook">VIEW ISSUED BOOKS</a>
+			</center>
+		</div>
+	</div>
+</body>
+
 </html>

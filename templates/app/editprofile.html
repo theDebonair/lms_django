@@ -3,6 +3,8 @@
 <head>
     {% load static %}
     <link rel="icon" href="{% static 'lms.png' %}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Edit Profile</title>
     {% block css %}
@@ -56,8 +58,69 @@
 </head>
 
 <body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            {% if request.user.is_authenticated %}
+            <button class="w3-bar-item w3-padding-large ">
+                {% if request.user.is_superuser %}
+                HELLO ADMIN
+                {% else %}
+                HELLO {{request.user}}
+                {% endif %}
+            </button>
+            {% endif %}
+            <a href="/#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HNBGU</a>
+            <a href="https://www.hnbgu.ac.in/courses-glance"
+                class="w3-bar-item w3-button w3-padding-large w3-hide-small">COURSES</a>
+            <div class="w3-dropdown-hover w3-hide-small">
+                <button class="w3-padding-large w3-button" title="More">MORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                        class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button">LMS FOR PC</a>
+                    <a href="https://github.com/theDebonair/lms_android/releases" class="w3-bar-item w3-button">LMS FOR
+                        ANDROID</a>
+                    <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+                    <a href="#aboutus" class="w3-bar-item w3-button">ABOUT US</a>
+                </div>
+            </div>
+            {% if not request.user.is_authenticated %}
+            <a href="/admin_login" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">ADMIN</a>
+            <a href="/signin" class="w3-button w3-padding-large w3-hover-red w3-hide-small w3-right">STUDENT</a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <a href="/profile" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">PROFILE</a>
+            <a href="/logout" class="w3-padding-large w3-button w3-hover-red w3-hide-small w3-right">LOGOUT</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        {% if not request.user.is_authenticated %}
+        <a href="/admin_login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ADMIN</a>
+        <a href="/signin" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">STUDENT</a>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <a href="/profile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+        <a href="/logout" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">LOGOUT</a>
+        {% endif %}
+        <a href="https://www.hnbgu.ac.in" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">HNBGU</a>
+        <a href="https://www.hnbgu.ac.in/courses-glance" class="w3-bar-item w3-button w3-padding-large"
+            onclick="myFunction()">COURSES</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+        <a href="#aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT US</a>
+    </div>
+
     <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
+        <div class="row" style="margin-top: 80px;">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                         height="200px" src="/static/student.png"><span class="font-weight-bold">{{user}}</span><span
@@ -81,8 +144,8 @@
                                 class="form-control" placeholder="ENTER MOBILE NUMBER" value=""></div>
                         <div class="col-md-12"><label class="labels">ADDRESS</label><input type="text"
                                 class="form-control" placeholder="ENTER ADDRESS" value=""></div>
-                        <div class="col-md-12"><label class="labels">EMAIL ID</label><input type="text"
-                                class="form-control" placeholder="ENTER EMAIL ID" value=""></div>
+                        <div class="col-md-12"><label class="labels">E-MAIL ID</label><input type="text"
+                                class="form-control" placeholder="ENTER E-MAIL ID" value=""></div>
                         <div class="col-md-12"><label class="labels">EDUCATION</label><input type="text"
                                 class="form-control" placeholder="EDUCATION DETAILS" value=""></div>
                     </div>
