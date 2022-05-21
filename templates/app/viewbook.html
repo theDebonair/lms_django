@@ -96,14 +96,14 @@
 
   <div class="row mx-auto" style="float: left;">
     {% for book in books %}
-    <div class="mx-3 col-md-4 mb-4 p-2 bg-white rounded">
+    <div class="mx-1 col-md-2 mb-4 p-2 bg-white rounded">
       <div class="card mx-auto text-center">
         <img class="card-img-top" src="{{ book.profile_pic.url }}" alt="IMAGE NOT FOUND!">
         <div class="card-body">
-          <label style="font-size: 18px; font-weight: bold;">{{book.name}}</label><br />
-          <label style="font-size: 12px;">AUTHOR: {{book.author}}</label><br />
-          <label style="font-size: 12px;">CATEGORY: {{book.category}}</label><br />
-          <label style="font-size: 12px;">ISBN: {{book.isbn}}</label><br />
+          <label style="font-size: 100%; font-weight: bold;">{{book.name}}</label><br />
+          <label style="font-size: 75%;">AUTHOR: {{book.author}}</label><br />
+          <label style="font-size: 75%;">CATEGORY: {{book.category}}</label><br />
+          <label style="font-size: 75%;">ISBN: {{book.isbn}}</label><br />
           {% if request.user.is_superuser %}
           <br /><a href="/delete_book/{{book.id}}/" class="btn btn-danger" style="font-size: 12px; max-width: 15rem;"
             onclick="return confirm('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?')">DELETE</a><br />
