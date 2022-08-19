@@ -1,4 +1,4 @@
-# [Library Management System](https://lmsapp.pythonanywhere.com) [ LMS ]
+# [Library Management System](https://lmsapp.pythonanywhere.com) [LMS]
 ###### This LMS is developed by using Django framework.
 
 ## Features:
