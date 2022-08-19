@@ -18,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # E-Mail configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 EMAIL_HOST = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
